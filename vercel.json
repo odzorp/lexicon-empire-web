@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "lexiconempire.com"
+        }
+      ],
+      "destination": "https://www.lexiconempire.com/:path*",
+      "permanent": true
+    }
+  ]
+}
