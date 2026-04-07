@@ -4,11 +4,11 @@ import CtaLink from "@/components/CtaLink";
 export default function Home() {
   return (
     <div className="space-y-8 md:space-y-12">
-      <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-8 text-white md:p-12">
+      <section className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 text-white sm:p-8 md:p-12">
         <p className="mb-3 inline-block rounded-full border border-[#c7a559]/50 bg-[#c7a559]/15 px-3 py-1 text-xs tracking-widest text-[#f4d8a2]">
           PREMIUM INFRASTRUCTURE GROUP
         </p>
-        <h1 className="max-w-4xl font-heading text-4xl font-bold leading-tight md:text-6xl">
+        <h1 className="max-w-4xl font-heading text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
           Building the Future, Fueling the Present.
         </h1>
         <p className="mt-5 max-w-3xl text-base text-white/85 md:text-lg">
@@ -47,11 +47,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-card p-6 md:p-8">
+      <section className="section-card p-5 sm:p-6 md:p-8">
         <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-widest text-[#b58f3e]">Core Verticals</p>
-            <h2 className="font-heading text-3xl font-bold text-[#0f172a]">Solutions Built for Scale</h2>
+            <h2 className="font-heading text-2xl font-bold text-[#0f172a] sm:text-3xl">Solutions Built for Scale</h2>
           </div>
           <p className="max-w-2xl text-sm text-slate-600">
             Each business unit is designed to operate independently and integrate seamlessly into large
@@ -89,9 +89,9 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="section-card grid gap-6 p-6 md:grid-cols-[1.6fr_1fr] md:p-8">
+      <section className="section-card grid gap-6 p-5 sm:p-6 md:grid-cols-[1.6fr_1fr] md:p-8">
         <div>
-          <h2 className="font-heading text-3xl font-semibold text-[#0f172a]">Founder Spotlight</h2>
+          <h2 className="font-heading text-2xl font-semibold text-[#0f172a] sm:text-3xl">Founder Spotlight</h2>
           <p className="mt-3 text-slate-700">
           &ldquo;A Decade of Building Dreams, Fueling Progress, and Honoring Commitment.&rdquo;
           </p>

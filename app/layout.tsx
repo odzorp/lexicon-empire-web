@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Merriweather, Open_Sans } from "next/font/google";
-import Link from "next/link";
+import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 
 const headingFont = Merriweather({
@@ -37,48 +37,5 @@ export default function RootLayout({
         </footer>
       </body>
     </html>
-  );
-}
-
-export function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-20 border-b border-white/10 bg-[#0f172a]/95 text-white backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="font-heading text-xl font-bold tracking-wide">
-          Lexicon Empire
-        </Link>
-        <nav className="hidden gap-5 text-sm md:flex">
-          <Link href="/about">About</Link>
-          <div className="group relative">
-            <Link href="/services/construction">Services</Link>
-            <div className="invisible absolute left-0 top-full mt-3 w-72 rounded-lg border border-white/15 bg-[#111827] p-3 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
-              <p className="mb-2 text-xs uppercase tracking-widest text-[#bfa26a]">Our Verticals</p>
-              <div className="grid gap-2">
-                <Link href="/services/construction" className="rounded px-2 py-1 hover:bg-white/10">
-                  Construction & Infrastructure
-                </Link>
-                <Link href="/services/materials-equipment" className="rounded px-2 py-1 hover:bg-white/10">
-                  Materials & Equipment
-                </Link>
-                <Link href="/services/energy" className="rounded px-2 py-1 hover:bg-white/10">
-                  Energy & Petroleum
-                </Link>
-                <Link href="/services/manufacturing" className="rounded px-2 py-1 hover:bg-white/10">
-                  Manufacturing & Retail
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-        <Link
-          href="/contact"
-          className="rounded-md border border-[#c7a559]/70 bg-[#c7a559] px-3 py-1.5 text-xs font-semibold text-black md:hidden"
-        >
-          Contact
-        </Link>
-      </div>
-    </header>
   );
 }

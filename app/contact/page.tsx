@@ -16,16 +16,16 @@ export default async function ContactPage({
 
   return (
     <div className="space-y-8">
-      <section className="section-card p-7 md:p-9">
+      <section className="section-card p-5 sm:p-7 md:p-9">
         <p className="text-xs uppercase tracking-widest text-[#b58f3e]">Get in Touch</p>
-        <h1 className="mt-2 font-heading text-4xl font-bold text-[#0f172a] md:text-5xl">Contact Us</h1>
+        <h1 className="mt-2 font-heading text-3xl font-bold text-[#0f172a] sm:text-4xl md:text-5xl">Contact Us</h1>
         <p className="mt-4 max-w-3xl text-slate-700">
           Share your project or service request and our team will route it to the right department quickly.
         </p>
       </section>
       <section className="grid gap-6 md:grid-cols-2">
         <ContactForm defaultInquiry={defaultInquiry} />
-        <div className="section-card space-y-4 p-6">
+        <div className="section-card space-y-4 p-5 sm:p-6">
           <h2 className="font-heading text-2xl font-semibold">Direct Contacts</h2>
           <div className="space-y-2 text-slate-700">
             <p><span className="font-semibold text-[#0f172a]">Sales:</span> sales@lexiconempire.com</p>
