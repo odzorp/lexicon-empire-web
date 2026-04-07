@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f6fb;
+  --foreground: #0f172a;
+  --navy-900: #0f172a;
+  --navy-800: #1e293b;
+  --gold-500: #c7a559;
+  --gold-600: #b58f3e;
+  --surface: #ffffff;
+  --surface-muted: #eef2f9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+.app-shell {
+  background:
+    radial-gradient(circle at 10% -10%, rgba(199, 165, 89, 0.14), transparent 38%),
+    radial-gradient(circle at 95% 10%, rgba(15, 23, 42, 0.1), transparent 34%),
+    var(--background);
+}
+
+.section-card {
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
 }
