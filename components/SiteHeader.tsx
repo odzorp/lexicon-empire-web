@@ -173,15 +173,14 @@ export default function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 text-white/80 transition-all duration-300 hover:border-white/40 hover:bg-white/8 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 md:hidden"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
         >
-          <span className="sr-only">{open ? "Close" : "Menu"}</span>
           <div className="relative h-5 w-5">
-            <span className={`absolute left-0 h-0.5 w-full bg-white transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 rotate(45deg)" : "top-0"}`} />
-            <span className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-white transition-all duration-300 ${open ? "opacity-0" : "opacity-100"}`} />
-            <span className={`absolute left-0 h-0.5 w-full bg-white transition-all duration-300 ${open ? "top-1/2 -translate-y-1/2 -rotate(45deg)" : "bottom-0"}`} />
+            <span className={`absolute left-0 h-0.75 w-full bg-white transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[3px]"}`} />
+            <span className={`absolute left-0 top-1/2 h-0.75 w-full -translate-y-1/2 bg-white transition-all duration-200 ${open ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"}`} />
+            <span className={`absolute left-0 h-0.75 w-full bg-white transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-[3px]"}`} />
           </div>
         </button>
       </div>
@@ -222,7 +221,7 @@ export default function SiteHeader() {
                     fill="currentColor"
                     className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                   >
-                    <path d="M2 4L6 8L10 4H2Z" />
+                    <path d="M2 4.5L6 8.5L10 4.5H2Z" />
                   </svg>
                 </button>
                 
