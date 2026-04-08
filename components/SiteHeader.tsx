@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
@@ -172,15 +173,15 @@ export default function SiteHeader() {
         {/* ── Mobile Toggle ── */}
         <button
           type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/5 text-white transition-all duration-200 hover:bg-white/10 md:hidden"
+          onClick={() => setOpen(!open)}
+          className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/40 bg-white/10 text-white backdrop-blur-sm md:hidden z-50"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
         >
           <div className="relative h-5 w-5">
-            <span className={`absolute left-0 h-0.75 w-full bg-white transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[3px]"}`} />
-            <span className={`absolute left-0 top-1/2 h-0.75 w-full -translate-y-1/2 bg-white transition-all duration-200 ${open ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"}`} />
-            <span className={`absolute left-0 h-0.75 w-full bg-white transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-[3px]"}`} />
+            <span className={`absolute left-0 h-[3px] w-full bg-white rounded transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-[2px]"}`} />
+            <span className={`absolute left-0 top-1/2 h-[3px] w-full -translate-y-1/2 bg-white rounded transition-all duration-200 ${open ? "opacity-0" : "opacity-100"}`} />
+            <span className={`absolute left-0 h-[3px] w-full bg-white rounded transition-all duration-200 ${open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-[2px]"}`} />
           </div>
         </button>
       </div>
@@ -189,7 +190,7 @@ export default function SiteHeader() {
       <div className="md:hidden">
         {/* Overlay backdrop */}
         <div 
-          className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`fixed inset-0 z-40 bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${
             open ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           onClick={() => setOpen(false)}
@@ -198,30 +199,30 @@ export default function SiteHeader() {
         
         {/* Drawer panel */}
         <div
-          className={`fixed left-0 right-0 top-[72px] z-50 max-h-[calc(100vh-72px)] overflow-y-auto bg-[#0a1020] border-t border-white/10 transition-transform duration-300 ease-out ${
-            open ? "translate-y-0" : "-translate-y-full"
+          className={`fixed inset-x-0 top-14 z-50 max-h-[calc(100vh-3.5rem)] overflow-y-auto bg-[#0f172a] border-t border-white/10 shadow-2xl transition-all duration-300 ease-out ${
+            open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0 pointer-events-none"
           }`}
         >
           <nav className="px-4 py-6" aria-label="Mobile navigation">
-            <div className="mx-auto max-w-6xl space-y-1">
+            <div className="space-y-1">
               
               {/* Services Accordion */}
-              <div className="rounded-xl overflow-hidden">
+              <div className="rounded-xl bg-white/5">
                 <button
                   type="button"
                   onClick={() => setServicesOpen(!servicesOpen)}
-                  className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm text-white/80 transition-colors hover:bg-white/[0.08]"
+                  className="flex w-full items-center justify-between px-4 py-4 text-sm font-medium text-white"
                   aria-expanded={servicesOpen}
                 >
                   <span>Services</span>
                   <svg 
-                    width="12" 
-                    height="12" 
-                    viewBox="0 0 12 12" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 16 16" 
                     fill="currentColor"
                     className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
                   >
-                    <path d="M2 4.5L6 8.5L10 4.5H2Z" />
+                    <path d="M4 6L8 10L12 6H4Z" />
                   </svg>
                 </button>
                 
@@ -229,13 +230,13 @@ export default function SiteHeader() {
                 <div className={`overflow-hidden transition-all duration-200 ${
                   servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}>
-                  <div className="pl-4 pb-2 space-y-1">
+                  <div className="px-4 pb-4 space-y-1">
                     {SERVICE_LINKS.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
-                        className="block rounded-lg px-4 py-2.5 text-sm text-white/70 hover:bg-white/[0.06] hover:text-white"
+                        className="block rounded-lg px-4 py-3 text-sm text-white/80 hover:bg-white/10"
                       >
                         {link.label}
                       </Link>
@@ -244,14 +245,14 @@ export default function SiteHeader() {
                 </div>
               </div>
               
-              <div className="border-t border-white/10 my-2" />
+              <div className="border-t border-white/10" />
               
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-sm text-white/80 transition-colors hover:bg-white/[0.08] hover:text-white"
+                  className="block rounded-xl px-4 py-4 text-sm font-medium text-white/90 hover:bg-white/10"
                 >
                   {link.label}
                 </Link>
@@ -260,7 +261,7 @@ export default function SiteHeader() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="btn btn-gold mt-4 w-full justify-center text-sm"
+                className="btn btn-gold mt-4 w-full justify-center text-sm py-4"
               >
                 Get a Quote
               </Link>
