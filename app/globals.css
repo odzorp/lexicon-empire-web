@@ -845,3 +845,21 @@ body {
   opacity: 1;
   transform: scale(1);
 }
+
+/* ═══════════════════════════════════════════════
+   HEADER OPTIMIZATION
+   Prevents sticky header jump on scroll
+═══════════════════════════════════════════════ */
+.header-sticky {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: auto;
+}
+
+@media (max-width: 767px) {
+  body:has([aria-expanded="true"]) {
+    overflow: hidden;
+  }
+}

@@ -46,11 +46,16 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 z-50 ${
         scrolled
           ? "border-white/10 bg-[#0a1020]/95 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
           : "border-white/6 bg-[#0f172a]/90 backdrop-blur-md"
       }`}
+      style={{ 
+        transition: 'background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden'
+      }}
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-4 py-3.5 md:py-4">
         {/* ── Logo ── */}
@@ -182,52 +187,53 @@ export default function SiteHeader() {
 
       {/* ── Mobile Drawer ── */}
       <div
-        className={`overflow-hidden transition-all duration-500 md:hidden ${
-          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className="relative md:hidden"
       >
-        <nav
-          className="border-t border-white/10 bg-[#0a1020]/98 px-4 py-6 backdrop-blur-xl"
-          aria-label="Mobile navigation"
+        <div
+          className={`absolute inset-x-0 origin-top overflow-hidden transition-[opacity,transform] duration-300 ease-out ${
+            open 
+              ? "visible translate-y-0 opacity-100" 
+              : "invisible -translate-y-2 opacity-0"
+          }`}
+          style={{ transitionDelay: open ? '0ms' : '150ms' }}
         >
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-2">
-            <p className="mb-2 px-3 text-[0.65rem] font-bold uppercase tracking-widest text-[#c7a559]/70">Services</p>
-            {SERVICE_LINKS.map((link, index) => (
+          <nav
+            className="border-t border-white/10 bg-[#0a1020]/98 px-4 py-6 backdrop-blur-xl"
+            aria-label="Mobile navigation"
+          >
+            <div className="mx-auto flex w-full max-w-6xl flex-col gap-1">
+              <p className="mb-3 px-3 text-[0.65rem] font-bold uppercase tracking-widest text-[#c7a559]/70">Services</p>
+              {SERVICE_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl px-4 py-3 text-sm text-white/80 transition-colors duration-200 hover:bg-white/[0.08] hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
+              <div className="my-4 border-t border-white/10" />
+              
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-xl px-4 py-3 text-sm text-white/80 transition-colors duration-200 hover:bg-white/[0.08] hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
               <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-xl px-4 py-3.5 text-sm text-white/80 transition-all duration-300 hover:bg-white/[0.08] hover:pl-6 hover:text-white"
-                style={{ 
-                  transitionDelay: `${index * 50}ms`
-                }}
+                href="/contact"
+                className="btn btn-gold mt-6 w-full justify-center text-sm shadow-[0_4px_20px_rgba(199,165,89,0.35)]"
               >
-                {link.label}
+                Get a Quote
               </Link>
-            ))}
-            
-            <div className="my-4 border-t border-white/8" />
-            
-            {NAV_LINKS.map((link, index) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-xl px-4 py-3.5 text-sm text-white/80 transition-all duration-300 hover:bg-white/[0.08] hover:pl-6 hover:text-white"
-                style={{ 
-                  transitionDelay: `${(index + 4) * 50}ms`
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-            
-            <Link
-              href="/contact"
-              className="btn btn-gold mt-6 w-full justify-center text-sm shadow-[0_4px_20px_rgba(199,165,89,0.35)]"
-            >
-              Get a Quote
-            </Link>
-          </div>
-        </nav>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
